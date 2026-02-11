@@ -32,8 +32,16 @@ public sealed partial class SiliconLawContainer : BoxContainer
         {
             if (Corrupted.Pressed)
             {
-                // TODO: this is copied from the ionstormsystem and should be cleaned up. these numbers should be consts
-                _law!.LawIdentifierOverride = Loc.GetString("ion-storm-law-scrambled-number", ("length", _random.Next(3, 10)));
+                _law!.LawIdentifierOverride = Loc.GetString(
+                    "ion-storm-law-scrambled-number",
+                    (
+                        "length",
+                        _random.Next(
+                            SharedSiliconLawSystem.IonStormIdentifierMinLength,
+                            SharedSiliconLawSystem.IonStormIdentifierMaxLength
+                        )
+                    )
+                );
             }
             else
             {
