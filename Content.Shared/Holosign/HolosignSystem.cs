@@ -50,9 +50,8 @@ public sealed class HolosignSystem : EntitySystem
         if (ent.Comp.PredictedSpawn || _net.IsServer)
         {
             var spawn = PredictedSpawnAtPosition(ent.Comp.SignProto, args.ClickLocation);
-            // Sign faces same direction as player
-            // Note that clicking to place the sign also rotates the player
-            Transform(spawn).LocalRotation = Transform(args.User).LocalRotation.RoundToCardinalAngle();
+            // Sign always faces south relative to its grid
+            Transform(spawn).LocalRotation = Angle.Zero;
         }
 
         args.Handled = true;
