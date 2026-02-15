@@ -1,7 +1,9 @@
+using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.PowerCell;
 using Content.Shared.Storage;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 
 namespace Content.Shared.Holosign;
@@ -9,6 +11,7 @@ namespace Content.Shared.Holosign;
 public sealed class HolosignSystem : EntitySystem
 {
     [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
@@ -49,9 +52,16 @@ public sealed class HolosignSystem : EntitySystem
         // overlapping of the same holo on one tile remains allowed to allow holofan refreshes
         if (ent.Comp.PredictedSpawn || _net.IsServer)
         {
-            var spawn = PredictedSpawnAtPosition(ent.Comp.SignProto, args.ClickLocation);
-            // Sign always faces south relative to its grid
-            Transform(spawn).LocalRotation = Angle.Zero;
+            var coordinates = args.ClickLocation;
+
+            // Snap to grid coordinates if one exists
+            var gridUid = _transform.GetGrid(coordinates);
+            if (TryComp<MapGridComponent>(gridUid, out var grid))
+            {
+                coordinates = coordinates.SnapToGrid(grid);
+            }
+
+            PredictedSpawnAttachedTo(ent.Comp.SignProto, coordinates);
         }
 
         args.Handled = true;
