@@ -61,7 +61,8 @@ public sealed class HolosignSystem : EntitySystem
                 coordinates = coordinates.SnapToGrid(grid);
             }
 
-            PredictedSpawnAttachedTo(ent.Comp.SignProto, coordinates);
+            var holosign = PredictedSpawnAtPosition(ent.Comp.SignProto, coordinates);
+            Transform(holosign).LocalRotation = Angle.Zero;
         }
 
         args.Handled = true;
