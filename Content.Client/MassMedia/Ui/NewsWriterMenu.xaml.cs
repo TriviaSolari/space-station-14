@@ -46,6 +46,7 @@ public sealed partial class NewsWriterMenu : FancyWindow
             var control = new NewsArticleCard
             {
                 Title = article.Title,
+                Content = article.Content,
                 Author = article.Author ?? Loc.GetString("news-read-ui-no-author"),
                 PublicationTime = article.ShareTime,
                 ArtcileNumber = i
