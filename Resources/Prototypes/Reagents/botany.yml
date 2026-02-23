@@ -224,8 +224,6 @@
           types:
             Caustic: 1
         # start harmony change
-    Drink:
-      effects:
       - !type:ModifyBloodLevel
         conditions:
         - !type:MetabolizerTypeCondition

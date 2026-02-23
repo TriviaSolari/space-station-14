@@ -306,8 +306,6 @@
   components:
   - type: Sprite
     sprite: _Impstation/Mobs/Species/Vox/parts.rsi
-  - type: Icon
-    sprite: _Impstation/Mobs/Species/Vox/parts.rsi
   # Harmony end
 
 - type: entity
