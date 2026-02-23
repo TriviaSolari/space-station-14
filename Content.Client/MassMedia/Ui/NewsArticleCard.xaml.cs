@@ -11,7 +11,7 @@ public sealed partial class NewsArticleCard : Button
     private bool _expanded;
 
     public Action? OnDeletePressed;
-    public int ArtcileNumber;
+    public int ArticleNumber;
 
     private static string ShortenString(string? text, int threshold)
     {
@@ -67,9 +67,7 @@ public sealed partial class NewsArticleCard : Button
 
     private void OnContentPressed(ButtonEventArgs obj)
     {
-        Log.Debug(_expanded.ToString());
         _expanded = !_expanded;
-        Log.Debug(_expanded.ToString());
         SetContentLabel();
     }
 
@@ -83,8 +81,5 @@ public sealed partial class NewsArticleCard : Button
         {
             ContentLabel.SetMessage(ShortenString(Content, ShortLabelThreshold));
         }
-
-        if (Content is not null)
-            Log.Debug(Content);
     }
 }
