@@ -1,4 +1,4 @@
-<Button
+<Control
     xmlns="https://spacestation14.io"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
@@ -14,13 +14,22 @@
             <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
                 <Label StyleClasses="LabelSubText" Name="PublishTimeLabel" />
                 <controls:VSpacer HorizontalExpand="True" />
+                <Button
+                    Name="ToggleContentButton"
+                    Text="{Loc news-write-ui-expand-text}"
+                    HorizontalAlignment="Right"
+                    Margin="0 6 6 6"
+                    SetHeight="19"
+                    SetWidth="60"
+                    StyleClasses="ButtonSmall"
+                    Access="Public" />
                 <controls:ConfirmButton
                     Name="DeleteButton"
                     Text="{Loc news-write-ui-delete-text}"
                     HorizontalAlignment="Right"
-                    Margin="8 6 6 6"
+                    Margin="0 6 6 6"
                     SetHeight="19"
-                    SetWidth="52"
+                    SetWidth="60"
                     Access="Public">
                     <Button.StyleClasses>
                         <system:String>ButtonSmall</system:String>
@@ -30,4 +39,4 @@
             </BoxContainer>
         </BoxContainer>
     </BoxContainer>
-</Button>
+</Control>
