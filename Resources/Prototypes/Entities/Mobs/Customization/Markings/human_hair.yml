@@ -678,6 +678,10 @@
   sprites:
     - sprite: Mobs/Customization/human_hair.rsi
       state: d
+    - sprite: Mobs/Customization/human_hair.rsi
+      state: d_mid
+    - sprite: Mobs/Customization/human_hair.rsi
+      state: d_front
 - type: marking
   id: HumanHairNitori
   bodyPart: Hair

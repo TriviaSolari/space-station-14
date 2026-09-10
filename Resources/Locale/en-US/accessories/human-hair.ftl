@@ -342,7 +342,9 @@ marking-HumanHairModern = Modern
 marking-HumanHairModern-modern = Modern
 
 marking-HumanHairMohawk = Mohawk
-marking-HumanHairMohawk-d = Mohawk
+marking-HumanHairMohawk-d = Back
+marking-HumanHairMohawk-d_mid = Middle
+marking-HumanHairMohawk-d_front = Front
 
 marking-HumanHairNitori = Nitori
 marking-HumanHairNitori-nitori = Nitori
